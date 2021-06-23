@@ -1,12 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-#from selenium.webdriver.common.by import By
-#from selenium.webdriver.support.ui import WebDriverWait
-#from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from dotenv import dotenv_values
 from bs4 import BeautifulSoup
 import csv
+
+### Created By Simon Renblad for use by HKUST for research purposes ###
+# contact: simon.renblad@gmail.com
+# 
 
 config = dotenv_values(".env")
 
@@ -62,6 +63,9 @@ def formatData(data, page_number):
         new_row = [str(page_number)]
         counter = 0
         for i in row:
+            if counter == 0:
+                counter += 1
+                continue
             while counter in [3, 5, 6, 7, 8]:
                 new_row.append("")
                 counter += 1
